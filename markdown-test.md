@@ -112,4 +112,4 @@ the docs are written in [markdown][].
 [markdown]: http://markdown.com
 [longkai]: http://weibo.com/coding4fun
 [1]: https://github.com/longkai
-[img]: http://ww4.sinaimg.cn/large/aa61ae0ejw1e6a0ph0lukj20m80ch75s.jpg
+[img]: http://farm6.staticflickr.com/5497/9205215117_a68ace8364_o.png
