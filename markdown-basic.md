@@ -1,53 +1,19 @@
-Markdown: Basics
+Markdown: 基础教程
 ================
 
-<ul id="ProjectSubmenu">
-    <li><a href="/projects/markdown/" title="Markdown Project Page">Main</a></li>
-    <li><a class="selected" title="Markdown Basics">Basics</a></li>
-    <li><a href="/projects/markdown/syntax" title="Markdown Syntax Documentation">Syntax</a></li>
-    <li><a href="/projects/markdown/license" title="Pricing and License Information">License</a></li>
-    <li><a href="/projects/markdown/dingus" title="Online Markdown Web Form">Dingus</a></li>
-</ul>
-
-
-Getting the Gist of Markdown's Formatting Syntax
+介绍markdown主要的格式化语法
 ------------------------------------------------
 
-This page offers a brief overview of what it's like to use Markdown.
-The [syntax page] [s] provides complete, detailed documentation for
-every feature, but Markdown should be very easy to pick up simply by
-looking at a few examples of it in action. The examples on this page
-are written in a before/after style, showing example syntax and the
-HTML output produced by Markdown.
+## 段落，标题，引用 ##
+一个段落就是简单的一行或者连续多行的文本，段落之间使用一行或者多个空行区分开来
+（一个空行是指任何看起来像一个空白的行，包含空格或者制表符的行就会被视为一个空白行）。
+正常的段落不应该使用空格或者制表符来缩进。
 
-It's also helpful to simply try Markdown out; the [Dingus] [d] is a
-web application that allows you type your own Markdown-formatted text
-and translate it to XHTML.
+markdown提供了两种风格的标题： *Setext* 和 *atx*.
+Setext风格的 `<h1>` 和 `<h2>` 标题是通过使用多个 (`=`) 和 (`-`) 作为标题内容的下划线来构造的。
+构造atx风格的标题，你需要把1-6个 (`#`) 放到标题内容那一行的起始处 -- (`#`) 的个数代表的在html中标题的等级。
 
-**Note:** This document is itself written using Markdown; you
-can [see the source for it by adding '.text' to the URL] [src].
-
-  [s]: /projects/markdown/syntax  "Markdown Syntax"
-  [d]: /projects/markdown/dingus  "Markdown Dingus"
-  [src]: /projects/markdown/basics.text
-
-
-## Paragraphs, Headers, Blockquotes ##
-
-A paragraph is simply one or more consecutive lines of text, separated
-by one or more blank lines. (A blank line is any line that looks like
-a blank line -- a line containing nothing but spaces or tabs is
-considered blank.) Normal paragraphs should not be indented with
-spaces or tabs.
-
-Markdown offers two styles of headers: *Setext* and *atx*.
-Setext-style headers for `<h1>` and `<h2>` are created by
-"underlining" with equal signs (`=`) and hyphens (`-`), respectively.
-To create an atx-style header, you put 1-6 hash marks (`#`) at the
-beginning of the line -- the number of hashes equals the resulting
-HTML header level.
-
-Blockquotes are indicated using email-style '`>`' angle brackets.
+引用是通过使用电子邮件风格的 '`>`' 来表示的。
 
 Markdown:
 
@@ -98,9 +64,9 @@ Output:
 
 
 
-### Phrase Emphasis ###
+### 短语强调 ###
 
-Markdown uses asterisks and underscores to indicate spans of emphasis.
+markdown使用星号和下划线来表示短语的强调。
 
 Markdown:
 
@@ -120,29 +86,30 @@ Output:
    
 
 
-## Lists ##
+## 列表 ##
 
-Unordered (bulleted) lists use asterisks, pluses, and hyphens (`*`,
-`+`, and `-`) as list markers. These three markers are
-interchangable; this:
+无序列表使用星号，更多的，你也使用连接符 (`*`, `+`, 和 `-`) 来作为列表的标识。
+下面三种是可以呼唤的：
+
+这个：
 
     *   Candy.
     *   Gum.
     *   Booze.
 
-this:
+这个:
 
     +   Candy.
     +   Gum.
     +   Booze.
 
-and this:
+和这个:
 
     -   Candy.
     -   Gum.
     -   Booze.
 
-all produce the same output:
+他们都会生成同样html:
 
     <ul>
     <li>Candy.</li>
@@ -150,14 +117,13 @@ all produce the same output:
     <li>Booze.</li>
     </ul>
 
-Ordered (numbered) lists use regular numbers, followed by periods, as
-list markers:
+有序列表使用常规的数字接着一个句点来作为列表的标记：
 
     1.  Red
     2.  Green
     3.  Blue
 
-Output:
+生成:
 
     <ol>
     <li>Red</li>
@@ -165,9 +131,8 @@ Output:
     <li>Blue</li>
     </ol>
 
-If you put blank lines between items, you'll get `<p>` tags for the
-list item text. You can create multi-paragraph list items by indenting
-the paragraphs by 4 spaces or 1 tab:
+如果你将空行放到了列表的项目中间，那么你将会给那个列表的项目的内容得到一个 `<p>` 标签。
+你可以通过给段落用4个空格或者1个制表符缩进来构建多个段落的列表项目：
 
     *   A list item.
     
@@ -175,7 +140,7 @@ the paragraphs by 4 spaces or 1 tab:
 
     *   Another item in the list.
 
-Output:
+结果:
 
     <ul>
     <li><p>A list item.</p>
@@ -185,33 +150,29 @@ Output:
     
 
 
-### Links ###
+### 链接 ###
+markdown支持两种风格的链接： *inline* 和 *reference* 。
+这两种方式，你都需要使用方括号把你想要变成链接的文本给框住。
 
-Markdown supports two styles for creating links: *inline* and
-*reference*. With both styles, you use square brackets to delimit the
-text you want to turn into a link.
-
-Inline-style links use parentheses immediately after the link text.
-For example:
+例如:
 
     This is an [example link](http://example.com/).
 
-Output:
+结果:
 
     <p>This is an <a href="http://example.com/">
     example link</a>.</p>
 
-Optionally, you may include a title attribute in the parentheses:
+此外，你还可以把一些文字插入到括号的作为链接的title：
 
     This is an [example link](http://example.com/ "With a Title").
 
-Output:
+结果:
 
     <p>This is an <a href="http://example.com/" title="With a Title">
     example link</a>.</p>
 
-Reference-style links allow you to refer to your links by names, which
-you define elsewhere in your document:
+引用风格的裂解允许你通过名字来引用你定义好的链接内容：
 
     I get 10 times more traffic from [Google][1] than from
     [Yahoo][2] or [MSN][3].
@@ -220,30 +181,29 @@ you define elsewhere in your document:
     [2]: http://search.yahoo.com/  "Yahoo Search"
     [3]: http://search.msn.com/    "MSN Search"
 
-Output:
+结果:
 
     <p>I get 10 times more traffic from <a href="http://google.com/"
     title="Google">Google</a> than from <a href="http://search.yahoo.com/"
     title="Yahoo Search">Yahoo</a> or <a href="http://search.msn.com/"
     title="MSN Search">MSN</a>.</p>
 
-The title attribute is optional. Link names may contain letters,
-numbers and spaces, but are *not* case sensitive:
+title属性是可选的，链接的名字可以包含文字，数字和空格，但是 *不是* 大小写敏感的：
 
     I start my morning with a cup of coffee and
     [The New York Times][NY Times].
 
     [ny times]: http://www.nytimes.com/
 
-Output:
+结果:
 
     <p>I start my morning with a cup of coffee and
     <a href="http://www.nytimes.com/">The New York Times</a>.</p>
 
 
-### Images ###
+### 图片 ###
 
-Image syntax is very much like link syntax.
+图片的语法和链接的非常像。
 
 Inline (titles are optional):
 
@@ -255,25 +215,25 @@ Reference-style:
 
     [id]: /path/to/img.jpg "Title"
 
-Both of the above examples produce the same output:
+两者都会得到同样的结果：
 
     <img src="/path/to/img.jpg" alt="alt text" title="Title" />
 
 
 
-### Code ###
+### 代码 ###
 
-In a regular paragraph, you can create code span by wrapping text in
-backtick quotes. Any ampersands (`&`) and angle brackets (`<` or
-`>`) will automatically be translated into HTML entities. This makes
-it easy to use Markdown to write about HTML example code:
+在一个正常的段落中，你可以使用反引号来显示代码片段。
+任何 (`&`) 和 (`<` 或者 `>`) 都将会被自动转义为html相关文本，
+这使得通过markdown来编写html代码非常简单：
+
 
     I strongly recommend against using any `<blink>` tags.
 
     I wish SmartyPants used named entities like `&mdash;`
     instead of decimal-encoded entites like `&#8212;`.
 
-Output:
+结果:
 
     <p>I strongly recommend against using any
     <code>&lt;blink&gt;</code> tags.</p>
@@ -283,9 +243,8 @@ Output:
     entites like <code>&amp;#8212;</code>.</p>
 
 
-To specify an entire block of pre-formatted code, indent every line of
-the block by 4 spaces or 1 tab. Just like with code spans, `&`, `<`,
-and `>` characters will be escaped automatically.
+要想将整个代码块预先格式化，你需要将代码段的每一行通过4个空格或者1个制表符来缩进。
+正和一小段代码一样 `&`, `<`, 和 `>` 都将会被自动转义:
 
 Markdown:
 
@@ -296,7 +255,7 @@ Markdown:
             <p>For example.</p>
         </blockquote>
 
-Output:
+结果:
 
     <p>If you want your page to validate under XHTML 1.0 Strict,
     you've got to put paragraph tags in your blockquotes:</p>
